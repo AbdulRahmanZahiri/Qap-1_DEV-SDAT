@@ -60,12 +60,14 @@ public double calculateTotal() {
 ---
 
 ### 3.  CLI Menu
-```java
+```
+java
 System.out.println("1. View Games");
 System.out.println("2. Add Game");
 System.out.println("3. View Total");
 System.out.println("0. Exit");
 ```
+
 **Why it's clean:** Simple switch-based menu for clarity and user interaction.
 
 ---
