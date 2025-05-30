@@ -22,6 +22,7 @@ public class Main {
             System.out.println("1. View Available Games");
             System.out.println("2. Add Game to Cart");
             System.out.println("3. View Cart Total");
+            System.out.println("4. Purchase");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
@@ -51,6 +52,43 @@ public class Main {
                     System.out.printf(" Cart Total: $%.2f\n", cart.calculateTotal());
                     break;
 
+
+                    case 4:
+                    if (cart.isEmpty()) {
+                        System.out.println(" Your cart is empty. Please add games before checking out.");
+                    } else {
+                        //  Show cart summary
+                        System.out.println("\n Purchase Summary:");
+                        for (Game g : cart.getGames()) {
+                            System.out.printf("- %s: $%.2f\n", g.getName(), g.getPrice());
+                        }
+                
+                        //  Show total
+                        double total = cart.calculateTotal();
+                        System.out.printf(" Total: $%.2f\n", total);
+                
+                        //  Ask for confirmation
+                        System.out.print(" Proceed to purchase? (yes/no): ");
+                        String confirm = scanner.nextLine().trim().toLowerCase();
+                
+                        if (confirm.equals("yes")) {
+                            //  Simulate payment processing
+                            System.out.println(" Processing payment...");
+                            try {
+                                Thread.sleep(1000); // simulate delay
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                
+                            // Step 5: Clear the cart and thank user
+                            cart.clear();
+                            System.out.println(" Thank you for your purchase! A receipt has been sent to your email.");
+                        } else {
+                            System.out.println(" Purchase canceled. Your cart is still available.");
+                        }
+                    }
+                    break;
+                
                 case 0:
                     System.out.println(" Thanks for visiting the Game Store!");
                     return;

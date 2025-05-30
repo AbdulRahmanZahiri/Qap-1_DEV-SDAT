@@ -11,6 +11,10 @@ public class Cart {
         games.add(game);
     }
 
+    public List<Game> getGames() {
+        return new ArrayList<>(games); 
+    }
+    
     public void removeGame(Game game) {
         games.remove(game);
     }
